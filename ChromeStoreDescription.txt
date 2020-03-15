@@ -1,0 +1,1 @@
+`A Place Holder to keep your Chrome Store description text so that it is also stored in git `

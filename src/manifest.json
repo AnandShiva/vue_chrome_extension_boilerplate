@@ -1,0 +1,76 @@
+{
+    "name": "Vue Chrome Extension",
+    "description": "Add IQ to your Amazon",
+    "version": "UPDATE_PACKAGE_JSON_VERSION_TO_CHANGE_MANIFEST_VERSION",
+    "manifest_version": 2,
+    "short_name": "Vue Chrome Extension",
+    "icons": {
+        "16": "icons/extension-icon.png",
+        "32": "icons/extension-icon.png",
+        "48": "icons/extension-icon.png",
+        "128": "icons/extension-icon.png"
+    },
+    "page_action": {
+        "default_title": "PageTitle",
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/extension-icon.png",
+            "32": "icons/extension-icon.png",
+            "48": "icons/extension-icon.png",
+            "128": "icons/extension-icon.png"
+        }
+    },
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+    "permissions": [
+        "cookies",
+        "declarativeContent",
+        "storage"
+    ],
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": true
+    },
+    "web_accessible_resources": [
+        "icons/*"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "http://www.example.com/"
+        ]
+    },
+    "incognito": "not_allowed",
+    "event_rules": [
+        {
+            "event": "declarativeContent.onPageChanged",
+            "actions": [
+                {
+                    "type": "declarativeContent.ShowPageAction"
+                }
+            ],
+            "conditions": [
+                {
+                    "type": "declarativeContent.PageStateMatcher",
+                    "pageUrl": { "hostContains": "" }
+                }
+            ]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.google.com/*"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "page_injects/index.js"
+            ],
+            "css": [
+                "page_injects/index.css"
+            ]
+        }
+    ]
+}

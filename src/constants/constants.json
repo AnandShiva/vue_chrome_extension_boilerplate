@@ -1,0 +1,7 @@
+{
+    "GENERIC_TIMEOUT_SECONDS": 3,
+    "IQ_ASPECT_RATIO": 1.2,
+    "IDS": {
+        "VUE_INSTANCE_INFLATE_ID": "uniq-disappearing-vue-container"
+    }
+}
